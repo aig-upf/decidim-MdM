@@ -1,0 +1,390 @@
+\chapter{Results}
+In this chapter, we will show the results obtained from several tests using hierarchical clustering over Decidim Barcelona proposals data.
+
+First, we describe Decidim Barcelona proposals to understand the challenge and limitation for clustering this data. Then, we present two sets of results: a positive result using proposals from very different categories and a different ground truth, and a negative result using proposals from one category. We decided to start with a controlled set of clearly different proposals. Then, we carried the same experiments over a set of proposals from one category that could represent the whole dataset more properly.
+
+\section{Dataset Details}
+In our experiments, we used proposals represented by their title and description in English to perform several tests using hierarchical clustering with different linkage methods and distance measures. Only those proposals that were accepted and as a consequence are grouped in a result with more than one proposal were selected for these experiments.
+
+Table~\ref{tab:data.desc} shows how the proposals are distributed in the different categories, together with the initial number of proposals, the number of accepted proposals and the quantity of proposals in Catalan and Spanish.
+
+
+\begin{table}[!htpb]
+\centering
+{\scriptsize %
+\begin{tabular}{l|c|c|c }
+ \hline
+Dataset Categories & Total & \#Accepted &  \#Accepted\\
+ &  & & Catalan {\hskip 1mm} Spanish \\\hline\hline 
+Global Justice & 62  & 45 & 44 {\hskip 1mm} 1  \\
+Ecological Transition & 3675 & 2710 &  2474 {\hskip 1mm} 228 \\
+Plural Economy & 1368 &  1140 & 1110 {\hskip 1mm} 25  \\
+Good Living &  4867 &  4010 & 3823 {\hskip 1mm} 178  \\
+Good Governance & 888 & 712 & 695 {\hskip 1mm} 17 \\
+\hline
+\end{tabular}
+}%
+\caption{Dataset description.}
+\label{tab:data.desc}
+\end{table}
+
+
+An advantage of using hierarchical clustering is that clustering at different scales can be analyzed. The output dendrogram illustrates the clustering process and allows to visually decide at which height cut it to obtain a sensible clustering. However, this feature can be feasible only for small datasets, since more than a hundred of samples will make a dendrogram unreadable. In our case, where we have more than a thousands of proposals, the output from a clustering in the whole dataset was not useful for the case of our study (see Figure \ref{fig:dendro.all}). To overcome this limitation and study the proposed methods in decidim.barcelona we decided to split the dataset in smalls groups, and run our experiments over those groups. The results presented in this chapter will be limited to two groups, one where the clustering performs poorly for the given ground truth, and other where results were good but using a more reliable ground truth.
+
+\begin{figure}[!htpb]
+\centering
+\includegraphics[width=16cm]{Figures/DendrogramAllDataset.png}
+\caption{Dendrogram of all proposals.}
+\label{fig:dendro.all}
+\hfill
+\end{figure}
+
+An important feature of our dataset was that besides being small, the text was short. As Figure~\ref{fig:qty.words} shows, the majority of proposals have a length between 10 to 20 words per proposal (title + description), which is a clear limitation for our analysis.
+Only few proposals have more than 30 words, this adds a challenge to the process of clustering similar proposals as it is more difficult to find similarities in short text as the co-occurrence of words decreased significantly when comparing to texts of hundreds of words. 
+
+\begin{figure}[!htpb]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=8cm]{Figures/tfidf_words.png}
+  \caption{}
+  \label{fig:sub2}
+\end{subfigure}
+  \begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=8cm]{Figures/tfidf_word2vec_words.png}
+  \caption{}
+  \label{fig:sub3}
+\end{subfigure}
+\caption{Distribution of the number of words per proposal for two different representations. Most of the proposals have around 20 words, which is a limitation for our study.}
+\label{fig:qty.words}
+\end{figure}
+
+\FloatBarrier
+\section{Positive Results}
+To achieve a result where external criterion output good values we had to change our approach. We decided to use a set of very different proposals and to use subcategories as our ground truth. We chose some proposals from very different subcategories to see which document representation gave the best result. The subcategories and distribution of proposals can be seen in table \ref{tab:mix.desc}. The content of these proposals is shown in table \ref{tab:positives}.
+
+\begin{table}[!htpb]
+\centering
+{\scriptsize %
+\begin{tabular}{l|c }
+ \hline
+Subcategories & Quantity\\
+ \\\hline\hline 
+Culture & 7  \\
+Health & 15  \\
+Host City & 7  \\
+Sports &  12  \\
+Transparent government   & 13\\
+\hline
+\end{tabular}
+}%
+\caption{Dataset description.}
+\label{tab:mix.desc}
+\end{table}
+
+In table \ref{tab:negative.scores} we can see the best quality measures obtained from the clustering of the set of proposals from different subcategories using three different data representation; Tf-Idf, LSA and Word2Vec. We used different linkage methods, but only those that showed best results for at least one quality measure are shown in this section. Similarly, even when Euclidean distance was used for the experiments of this study, its results were in general worse than those obtained when using cosine distance. Therefore, we will limit the results of this chapter to those using cosine distance.
+
+In table \ref{tab:mix.scores} we can notice that in general the three document representation used achieve good results. The main difference between this dataset and the global justice's dataset is that the classes in this one are highly different from one class to another making easier to divide proposals correctly. 
+\input{positive_metrics.tex}
+
+Figure \ref{fig:mix.scores} shows the performance measured using purity, NMI, ARI and silhouette coefficient accross different number of clusters. For the three document representations is notable that at certain point (around 10 clusters) the highest score is achieved. In table \ref{tab:mix.scores} and figure \ref{fig:mix.scores} can be observed that NMI and ARI are maximized at the same number of cluster (actually implies the same cut threshold). This led us to think that combining more than one quality score can be more informative and helpful when deciding which is the best solution.
+
+\begin{figure*}[!htp]
+  \centering
+    \vskip\baselineskip
+
+  \begin{subfigure}[b]{0.49\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{tfidf/clusters_score_tfidf_MIX.png}
+  \caption[]%
+  {{\small Tf-Idf.}}    
+  \label{fig:mix.tfidf.score}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.49\textwidth}  
+  \centering 
+  \includegraphics[width=\textwidth]{lsa/clusters_score_lsa_MIX.png}
+  \caption[]%
+  {{\small LSA.}}    
+  \label{fig:mix.lsa.score}
+  \end{subfigure}
+  \hfill
+  \end{figure*}
+ \begin{figure*}[!htp]\ContinuedFloat
+   \centering 
+  \begin{subfigure}[b]{0.50\textwidth}   
+  \vskip\baselineskip
+  \includegraphics[width=\textwidth]{word2vec/clusters_score_word2vec_MIX.png}
+  \caption[]%
+  {{\small Word2Vec.}}    
+  \label{fig:mix.word2vec.score}
+  \end{subfigure} 
+\caption{Quality measure results for Tf-Idf, LSA and Word2Vec of subset of proposals.}
+\label{fig:mix.scores}
+\end{figure*}
+
+\FloatBarrier
+\subsection{Tf-Idf Results}
+In figure \ref{fig:mix.tfidf.dendro} we can see the dendrograms corresponding to the highest ARI and silhouette coefficient when using Tf-Idf over the proposals from different subcategories \ref{tab:mix.desc}. In these dendrograms we can observe that Tf-Idf success grouping proposals from same subcategories, this mainly product of the clearly different vocabulary used in each of these subcategories (see table \ref{tab:positives}).   
+\begin{figure*}[!htpb]
+  \centering
+  \begin{subfigure}[b]{0.55\textwidth}  
+  \centering 
+  \includegraphics[width=\textwidth]{tfidf/BEST_ARI_MIX.png}
+  \caption[]%
+  {{\small Clustering with highest ARI.}}    
+  \label{fig:mix.tfidf.ari.nmi}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.55\textwidth}   
+  \hfill
+  \centering 
+  \includegraphics[width=\textwidth]{tfidf/BEST_SIL_MIX.png}
+  \caption[]%
+  {{\small Clustering with highest Silhouette.}}    
+  \label{fig:mix.tfidf.sil}
+  \end{subfigure}
+\caption{Dendrogram with highest quality score of proposals from different categories (Tf-Idf).}
+\label{fig:mix.tfidf.dendro}
+\end{figure*}
+
+\FloatBarrier
+\subsection{LSA Results}
+LSA gave of the best result from all the experiments carried over this dataset. We justify this by the difference of vocabulary between proposals of different subcategories; a property successfully caught by Tf-Idf. LSA improved Tf-Idf results by keeping more valuable features, removing all the noise captured by Tf-Idf. This can be clearly observed in the two dendrograms in figure \ref{fig:mix.lsa.dendro}.
+\begin{figure*}[!htpb]
+  \centering
+  \begin{subfigure}[b]{0.55\textwidth}  
+  \centering 
+  \includegraphics[width=\textwidth]{lsa/BEST_ARI_MIX.png}
+  \caption[]%
+  {{\small Clustering with highest ARI.}}    
+  \label{fig:mix.lsa.ari}
+ \end{subfigure}
+ \end{figure*}
+
+\begin{figure*}[!htpb]\ContinuedFloat
+ \centering 
+\begin{subfigure}[b]{0.55\textwidth}  
+  \includegraphics[width=\textwidth]{lsa/BEST_SIL_MIX.png}
+  \caption[]%
+  {{\small Clustering with highest Silhouette.}}    
+  \label{fig:mix.lsa.sil}
+  \end{subfigure}
+\caption{Dendrogram with highest quality score of proposals from different categories (LSA).}
+\label{fig:mix.lsa.dendro}
+\end{figure*}
+
+In figure \ref{fig:mix.lsa.ari} we see that the clusters obtained using LSA have a low intra-cluster distance and a high inter-cluster distance, what is a main goal when clustering data. This shows that LSA successfully groups this set of proposals.
+\FloatBarrier
+\subsection{Word2Vec Results}
+Given the particularity of this dataset, already shown by Tf-Idf, it would have been surprisingly to find an extremely bad result in Word2Vec. We can see in figure \ref{fig:mix.word2vec.dendro} that Word2Vec is able to split the proposals into their subcategories, with only a few mistakes. Similarly to Tf-Idf, the clusters defined by Word2Vec are not compact, and the inter-cluster distance is relatively small, especially when compared to LSA results. This is caught by the best result of the silhouette coefficient, that given the high intra-cluster distance and the low inter-cluster distance found the best cut at 0.56 where the highest gap inter-clusters is reached. 
+\begin{figure*}[!htpb]
+  \centering 
+  \begin{subfigure}[b]{0.59\textwidth}   
+  \centering 
+  \includegraphics[width=\textwidth]{word2vec/BEST_ARI_MIX.png}
+  \caption[]%
+  {{\small Clustering with highest ARI.}}    
+  \label{fig:mix.word2vec.ari}
+  \end{subfigure}
+  \hfill
+  \centering 
+  \begin{subfigure}[b]{0.59\textwidth}   
+  \centering 
+  \includegraphics[width=\textwidth]{word2vec/BEST_SIL_MIX.png}
+  \caption[]%
+  {{\small Clustering with highest Silhouette.}}    
+  \label{fig:mix.word2vec.sil}
+  \end{subfigure}
+\caption{Dendrograms with highest quality score of proposals from different categories (Word2Vec).}
+\label{fig:mix.word2vec.dendro}
+\end{figure*}
+    
+\FloatBarrier
+
+\input{positive_proposals.tex}
+
+\FloatBarrier
+\section{Negative Results}
+
+The results presented in this section correspond to Global Justice's proposals. This category has a total of 45 accepted proposals \ref{tab:data.desc}. Actuations (also called results) are composed by one to many proposals. From the 45 global justice's proposals we will use only the 29 proposals that are within an actuation of more than one proposal. For details of the content of these proposals look at table \ref{tab:negatives}.
+
+% Proposals in the category of global justice tackle these main subjects: Refugees, human rights, migrants, international networking, international cooperation. After reading the proposals in \ref{tab:data.desc} we could naturally group proposals as follow (for space reasons we will show the proposals Id):
+% \begin{itemize}
+% \item Refugees: 2293, 2358, 6142, 
+% \end{itemize}
+
+In table \ref{tab:negative.scores} we can see the best quality measures obtained from the clustering of global justice's proposals using Tf-Idf, LSA and Word2Vec.
+
+\input{negative_metric.tex}
+
+In figure \ref{fig:gj.scores} we can see the behavior of the four scores used to measure the quality of our output. We can see how purity and NMI tend to favor those result with a higher number of clusters. For this subset of proposals we found more reliable to use ARI and Silhouette coefficient to decide which would be the best clustering results, as both of them do not favor solutions with high cardinality.
+% To find an appropriate measure to evaluate the goodness of our results was extremely challenged. We tested some of the measures available and widely use, and their drawbacks make difficult to chose the best result only by looking at the best score. 
+\begin{figure*}[!htp]
+  \centering
+  \begin{subfigure}[b]{0.49\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{tfidf/clusters_score_tf-idf_Global_Justice.png}
+  \caption[]%
+  {{\small Tf-Idf.}}    
+  \label{fig:gj.tfidf.score}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.49\textwidth}  
+  \centering 
+  \includegraphics[width=\textwidth]{lsa/clusters_score_lsa_Global_Justice.png}
+  \caption[]%
+  {{\small LSA.}}    
+  \label{fig:gj.lsa.score}
+  \end{subfigure}
+  \vskip\baselineskip
+ 
+  \begin{subfigure}[b]{0.49\textwidth}   
+  \centering 
+  \includegraphics[width=\textwidth]{word2vec/clusters_score_word2vec_Global_Justice.png}
+  \caption[]%
+  {{\small Word2Vec.}}    
+  \label{fig:gj.word2vec.score}
+  \end{subfigure} 
+\caption{Quality measure results for Tf-Idf, LSA and Word2Vec of Global Justice's Proposals.}
+\label{fig:gj.scores}
+\end{figure*}
+
+The original number of classes of global justice's proposals is seven. In table \ref{tab:negative.scores} we can see that none of the best scores results in this number of clusters. The closest clustering result was the obtained by using LSA + Average Linkage. However, the obtained clustering in this case does not agree with our ground truth, as ARI shows. Nevertheless, the resulting clustering shows a high silhouette coefficient, and giving the fact that our ground truth was not totally reliable, we tend to trust in results with high silhouette coefficient, this shows that the proposals in each cluster are very similar between then and clearly different from proposals in other clusters. 
+\FloatBarrier
+\subsection{Tf-Idf Results}
+Looking at table \ref{tab:negative.scores} we will automatically discards the results where the dendrogram is cut at 0.4606 and 0.2206 (see Figure \ref{fig:gj.tfidf.nmi} and \ref{fig:gj.tfidf.purity} respectively), there can be seen that this result show not useful clusters. The solutions with the closest number of clusters to the actual number of classes are the one from using average linkage and cutting the dendrogram at 0.9006. In \ref{fig:gj.tfidf.ari} can be seen 4 clusters, which any of then perfectly matching the ground truth, however, looking at the content of the proposals for each of these clusters it is evident that at least 3 of these 4 clusters have a clear tendency to group proposals that tackle the main topic. From \ref{fig:gj.tfidf.ari}) we can see these topics:
+\begin{enumerate}[itemsep=1pt,parsep=1pt]
+\item Green cluster: Global justice, international network.
+\item Red cluster: International cooperation, exchange of practices across cities.
+\item Blue cluster: Refugees.
+\item Purple cluster: This is the least clear, it mainly talks about specific cities in the Mideast, humanitarian crisis and refugees.
+\end{enumerate}
+From the above results, we can conclude that, even when the clustering was not perfect, specially compared to the ground truth, in general proposals that have similar words were in the same cluster. This result is what we expected from Tf-Idf, which is good at finding proposals that have word overlapping.
+
+\begin{figure*}[!htpb]
+  \centering
+  \begin{subfigure}[b]{0.48\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{tfidf/BEST_NMI_Global_Justice.png}
+  \caption[]%
+  {{\small Clustering with highest NMI.}}    
+  \label{fig:gj.tfidf.nmi}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.48\textwidth}  
+  \centering 
+  \includegraphics[width=\textwidth]{tfidf/BEST_PURITY_Global_Justice.png}
+  \caption[]%
+  {{\small Clustering with highest Purity.}}    
+  \label{fig:gj.tfidf.purity}
+  \end{subfigure}
+  \vskip\baselineskip
+  \begin{subfigure}[b]{0.48\textwidth}   
+  \centering 
+  \includegraphics[width=\textwidth]{tfidf/BEST_ARI_Global_Justice.png}
+  \caption[]%
+  {{\small Clustering with highest ARI.}}    
+  \label{fig:gj.tfidf.ari}
+  \end{subfigure}
+  \quad
+  \begin{subfigure}[b]{0.48\textwidth}   
+  \centering 
+  \includegraphics[width=\textwidth]{tfidf/BEST_SIL_Global_Justice.png}
+  \caption[]%
+  {{\small Clustering with highest Silhouette C.}}    
+  \label{fig:gj.tfidf.sil}
+  \end{subfigure}
+\caption{Dendrogram with highest quality score of Global Justice Proposals for Tf-Idf.}
+\label{fig:gj.tfidf.dendro}
+\end{figure*}
+
+% \begin{figure}[htpb]
+% \centering
+% \includegraphics[width=10cm]{tfidf/clusters_score_tf-idf_Global_Justice.png}
+% \caption{Global Justice Proposals quality metrics vs number of clusters (Tf-Idf).}
+% \label{fig:gj.gj.tfidf.scores}
+% \end{figure}
+\FloatBarrier
+\subsection{LSA Results}
+In figure \ref{fig:gj.lsa.dendro} we can see the dendrograms for the best scores when using LSA. Dendrograms for the best NMI and purity have been ignored given the little information they provide. In these dendrograms we can see why LSA reached the highest silhouette coefficient in table (see table \ref{tab:negative.scores}) as this produce very well defined clusters with elements within the same cluster very close between them and far from elements in different clusters . LSA outputs very compact clusters, specially when compare to the output of Tf-Idf. The dimensionality reduction of the proposals' vectors removes noise from the output of Tf-Idf, which produces a sparse matrix.
+
+\begin{figure*}[!htpb]
+  \centering
+  \begin{subfigure}[b]{0.48\textwidth}   
+  \centering 
+  \includegraphics[width=\textwidth]{lsa/BEST_ARI_Global_Justice.png}
+  \caption[]%
+  {{\small Clustering with highest ARI.}}    
+  \label{fig:gj.lsa.ari}
+  \end{subfigure}
+  \quad
+  \begin{subfigure}[b]{0.48\textwidth}   
+  \centering 
+  \includegraphics[width=\textwidth]{lsa/BEST_SIL_Global_Justice.png}
+  \caption[]%
+  {{\small Clustering with highest Silhouette C.}}    
+  \label{fig:gj.lsa.sil}
+  \end{subfigure}
+\caption{Dendrogram with highest quality score of Global Justice Proposals for LSA.}
+\label{fig:gj.lsa.dendro}
+\end{figure*}
+
+The highest ARI and Silhouette score was produced by the average linkage. Their differ in the cut height. In figure \ref{fig:gj.lsa.sil} five clusters were created which is the closest result to the actual number of clusters. From the clusters in \ref{fig:gj.lsa.sil} we can extract the following main topics per cluster:
+\begin{enumerate}[itemsep=1pt,parsep=1pt]
+\item Green cluster: Refugees.%Global justice, international network.
+\item Red cluster: Refugees. 
+\item Blue cluster: International cooperation, exchange of practices across cities.
+\item Purple cluster: Global justice.
+\item Yellow cluster: International network, human rights (the word Barcelona is present in all proposals of this cluster).
+\end{enumerate}
+
+When looking at the clusters in \ref{fig:gj.lsa.sil} we could see that the proposals in each cluster have a high degree of relation between them. If we split the dataset content into two main topics it would be very clear to define a group of proposals that speak about refugees and another group about international cooperations. This division would be perfectly recreated by LSA if we cut the dendrogram at 0.8.
+
+% \begin{figure}[htpb]
+% \centering
+% \includegraphics[width=10cm]{lsa/clusters_score_lsa_Global_Justice.png}
+% \caption{Global Justice Proposals quality metrics vs number of clusters (LSA).}
+% \label{fig:gj.lsa.scores}
+% \end{figure}
+\FloatBarrier
+\subsection{Word2Vec Results}
+In figure \ref{fig:gj.word2vec.dendro} we can see the resulting dendrogram from Word2Vec + Average linkage. In this case the silhouette coefficient is maximized when only two clusters are defined (see figure \ref{fig:gj.word2vec.sil}). It can be noticed that silhouette coefficient tends to cut the dendrogram at the point where the highest inter clustering distance is found. 
+
+Looking at figure \ref{fig:gj.word2vec.ari} three clusters were defined:
+\begin{enumerate}[itemsep=1pt,parsep=1pt]
+\item Green cluster: International cooperation, exchange of practices across cities, refugees.
+\item Red cluster: Global justice, refugee.
+\item Blue cluster: International cooperation, human rights, global justice.
+\end{enumerate}
+We can see that Word2Vec failed to split proposals into groups of related topics. This result was unexpected, given that since its publication in 2013 many researches have used Word2Vec to improve state-of-the-art algorithms in fields like natural language \cite{semantic.short}. Certainly, there is a lack of investigation on how effective is Word2Vec capturing the semantical meaning from short sentences \cite{semantic.short}.
+\begin{figure*}[!htpb]
+  \centering
+  \begin{subfigure}[b]{0.60\textwidth}   
+  \centering 
+  \includegraphics[width=\textwidth]{word2vec/BEST_ARI_Global_Justice.png}
+  \caption[]%
+  {{\small Clustering with highest ARI.}}    
+  \label{fig:gj.word2vec.ari}
+  \end{subfigure}
+  \quad
+  \begin{subfigure}[b]{0.60\textwidth}   
+  \centering 
+  \includegraphics[width=\textwidth]{word2vec/BEST_SIL_Global_Justice.png}
+  \caption[]%
+  {{\small Clustering with highest Silhouette C.}}    
+  \label{fig:gj.word2vec.sil}
+  \end{subfigure}
+\caption{Dendrogram with highest quality score of Global Justice Proposals for Word2Vec.}
+\label{fig:gj.word2vec.dendro}
+\end{figure*}
+    
+
+% \begin{figure}[!htpb]
+% \centering
+% \includegraphics[width=10cm]{word2vec/clusters_score_word2vec_Global_Justice.png}
+% \caption{Global Justice Proposals quality metrics vs number of clusters (Word2Vec).}
+% \label{fig:gj.word2vec.scores}
+% \end{figure}
+\FloatBarrier
+\input{negative_proposals.tex}
+\newpage

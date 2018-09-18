@@ -1,0 +1,82 @@
+% Template Created by Albert Alises Sorribas (albert.alises@gmail.com) for the thesis of the MSc. in Computational Biomedical Engineering, Universitat Pompeu Fabra. Based on the thesis template of the Imperial College London,  downloadable at http://www.imperial.ac.uk/brand-style-guide/templates/downloadable-templates/
+
+\documentclass[a4paper,12pt,twoside]{report}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry} %Margins
+ \usepackage{pdfpages}
+ \usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{tocloft}
+\usepackage{amsmath}
+\usepackage{chngcntr }
+\usepackage[toc,page]{appendix}
+\usepackage[T1]{fontenc}
+\usepackage[nottoc]{tocbibind}
+\usepackage[compact]{titlesec}
+\titlespacing{\section}{0pt}{1ex}{0ex}
+\titlespacing{\subsection}{0pt}{1ex}{0ex}
+\titlespacing{\subsubsection}{0pt}{1ex}{0ex}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumitem}
+\usepackage{ulem}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{subcaption}
+\usepackage{xr}
+\usepackage{placeins}
+\usepackage{enumitem}
+
+\externaldocument{negative_proposals.tex}
+\externaldocument{negative_metric.tex}
+\externaldocument{positive_proposals.tex}
+\externaldocument{positive_metrics.tex}
+
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\newcommand{\vnote}[1]{{\color{red}[V: #1]}} 
+\newcommand{\enote}[1]{{\color{blue}[E: #1]}}
+
+\include{thesis.preamble}
+
+\begin{document}
+
+\newgeometry{left=2cm,right=2cm} %Only for the title new margins
+
+%Title parameters
+\title{ Aiding decidim.barcelona: Clustering of 
+Proposals}
+\author{Esther González}
+\submitdate{September 2017}
+\supervisor{Vicenç Gómez}
+
+\maketitle
+
+\maketitle
+
+\restoregeometry
+
+\preface
+\cleardoublepage 
+\input{abstract}
+
+\body
+
+%Introduction of the project
+\input{introduction}
+\input{methods}
+\input{results}
+\input{discussion}
+
+\listoffigures
+\newpage
+\listoftables
+
+% appendices come here
+\bibliographystyle{abbrv}
+\bibliography{bibliography}
+
+% \input{appendix}
+
+\end{document}

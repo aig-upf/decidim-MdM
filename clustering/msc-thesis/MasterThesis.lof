@@ -1,0 +1,16 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1}{\ignorespaces The CBOW model predicts the current word based on the context, and the Skip-gram predicts surrounding words given the current word \cite {mikolov2013}.\relax }}{9}{figure.caption.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Example of a dendrogram\relax }}{10}{figure.caption.2}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3}{\ignorespaces Dendrogram of all proposals.\relax }}{19}{figure.caption.4}
+\contentsline {figure}{\numberline {4}{\ignorespaces Distribution of the number of words per proposal for two different representations. Most of the proposals have around 20 words, which is a limitation for our study.\relax }}{20}{figure.caption.5}
+\contentsline {figure}{\numberline {5}{\ignorespaces Quality measure results for Tf-Idf, LSA and Word2Vec of subset of proposals.\relax }}{22}{figure.caption.9}
+\contentsline {figure}{\numberline {6}{\ignorespaces Dendrogram with highest quality score of proposals from different categories (Tf-Idf).\relax }}{23}{figure.caption.10}
+\contentsline {figure}{\numberline {7}{\ignorespaces Dendrogram with highest quality score of proposals from different categories (LSA).\relax }}{25}{figure.caption.12}
+\contentsline {figure}{\numberline {8}{\ignorespaces Dendrograms with highest quality score of proposals from different categories (Word2Vec).\relax }}{26}{figure.caption.13}
+\contentsline {figure}{\numberline {9}{\ignorespaces Quality measure results for Tf-Idf, LSA and Word2Vec of Global Justice's Proposals.\relax }}{31}{figure.caption.15}
+\contentsline {figure}{\numberline {10}{\ignorespaces Dendrogram with highest quality score of Global Justice Proposals for Tf-Idf.\relax }}{33}{figure.caption.16}
+\contentsline {figure}{\numberline {11}{\ignorespaces Dendrogram with highest quality score of Global Justice Proposals for LSA.\relax }}{34}{figure.caption.17}
+\contentsline {figure}{\numberline {12}{\ignorespaces Dendrogram with highest quality score of Global Justice Proposals for Word2Vec.\relax }}{36}{figure.caption.18}
+\addvspace {10\p@ }

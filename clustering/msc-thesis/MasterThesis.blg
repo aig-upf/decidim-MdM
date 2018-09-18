@@ -1,0 +1,63 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: MasterThesis.aux
+The style file: abbrv.bst
+Database file #1: bibliography.bib
+Warning--empty journal in clusteringSurvey
+Warning--empty journal in nmi.fair
+Warning--empty journal in decide.madrid
+Warning--empty journal in semantic.short
+Warning--empty journal in lsa
+Warning--empty journal in similarity.mes
+Warning--empty journal in comparing.partitions
+Warning--empty journal in wmd
+Warning--empty journal in sumarization
+Warning--empty journal in word2vec.lexical
+Warning--empty journal in mikolov2013
+Warning--empty journal in mikolov.phrases
+Warning--empty journal in mullner
+Warning--empty journal in vector.space
+Warning--empty journal in clust.short.text
+Warning--empty journal in tfidf
+You've used 21 entries,
+            2118 wiz_defined-function locations,
+            611 strings with 7360 characters,
+and the built_in function-call counts, 7471 in all, are:
+= -- 681
+> -- 470
+< -- 5
++ -- 188
+- -- 164
+* -- 549
+:= -- 1283
+add.period$ -- 64
+call.type$ -- 21
+change.case$ -- 142
+chr.to.int$ -- 0
+cite$ -- 37
+duplicate$ -- 262
+empty$ -- 484
+format.name$ -- 164
+if$ -- 1509
+int.to.chr$ -- 0
+int.to.str$ -- 21
+missing$ -- 22
+newline$ -- 108
+num.names$ -- 42
+pop$ -- 178
+preamble$ -- 1
+purify$ -- 123
+quote$ -- 0
+skip$ -- 201
+stack$ -- 0
+substring$ -- 316
+swap$ -- 45
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 80
+warning$ -- 16
+while$ -- 58
+width$ -- 23
+write$ -- 209
+(There were 16 warnings)

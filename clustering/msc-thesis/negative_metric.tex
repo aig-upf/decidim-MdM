@@ -1,0 +1,30 @@
+
+\begin{table}[!htpb]
+\centering
+{\scriptsize %
+\begin{tabular}{c|c|c|c|c|c|c|c|c}
+ \hline
+Representation & Distance & Linkage & Cut Threshold & \#Clusters & NMI & Purity & ARI & Silhouette\\
+\hline
+\hline
+\multirow{4}{*}{Tf-Idf}  & \multirow{4}{*}{Cosine}  & Complete & 0.4606 & 26 & \textbf{0.7068} & 0.9655 & 0.0344 & 0.0880 \\
+ & & Complete & 0.2206 & 28 & 0.6965 & \textbf{0.9655}&  -0.0049 & 0.0489 \\
+ & & Average & 0.8806 & 4 & 0.4991 &  0.5517 & \textbf{0.3399} & 0.1163  \\
+ & & Complete & 0.9006 & 10 & 0.6183 &  0.7241 & 0.2152 & \textbf{0.1879} \\
+\cline{1-9}
+\multirow{4}{*}{LSA}  & \multirow{4}{*}{Cosine}  & Complete & 0.0371 & 26 & \textbf{0.6660} & 0.8966 & -0.0144 & 0.1544 \\
+ & & Complete & 0.0371 & 26 & 0.6660 & \textbf{0.8966}&  -0.0144 & 0.1544 \\
+ & & Average & 0.7171 & 3 & 0.3521 &  0.5172 & \textbf{0.2711} & 0.4137  \\
+ & & Average & 0.4371 & 5 & 0.4476 &  0.5862 & 0.1949 & \textbf{0.5899} \\
+\cline{1-9}
+\multirow{4}{*}{Word2Vec}  & \multirow{4}{*}{Cosine}  & Complete & 0.1577 & 27 & \textbf{0.7016} & 0.9655 & 0.0149 & 0.0498 \\
+ & & Complete & 0.0977 & 28 & 0.6965 & \textbf{0.9655}&  -0.0049 & 0.0337 \\
+ & & Average & 0.5177 & 4 & 0.4367 &  0.5517 & \textbf{0.1652} & 0.2890  \\
+ & & Average & 0.5977 & 2 & 0.1123 &  0.4138 & 0.0033 & \textbf{0.3491} \\
+\cline{1-9}
+\hline
+\end{tabular}
+}%
+\caption{Quality measures for Global Justice's Proposals.}
+\label{tab:negative.scores}
+\end{table}

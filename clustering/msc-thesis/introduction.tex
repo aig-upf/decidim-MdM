@@ -1,0 +1,37 @@
+\normallinespacing
+
+\chapter{Introduction}
+The Barcelona City Council developed an online participatory-democracy platform in which citizens and government can create, discuss, comment and support proposals \cite{decidim}. The goal of this platform is to elaborate the strategic plan of the municipality with the participation of the citizens, collecting proposals from different sources, giving citizens and neighborhoods the chance to speak up about improvements that can be carried out in the city and their neighborhoods.
+
+Including citizens into the process of creation of The Municipality Plan through an e-participation platform is a practice that improve the relation among citizens, residents, and government. That is a common practice in smart cities, promoting cooperation, partnerships and participations \cite{decide.madrid}. The use of information and communications technologies in such platforms can upgrade the user experience, to allow a better interaction and as a consequence encourage their use.
+
+For the case of Decidim Barcelona, avoid duplicated proposals, and automatically groups similar proposals would increase its effectiveness, user experience and would speed up the plan creation process. To achieve this we have carried severals experiments to discover to what extends proposals can be successfully clustered into semantically similar groups. The use of Machine Learning on similar platforms have been previously study to tackle similar problems in \cite{decide.madrid}, building a recommender system for Decide Madrid platform.  
+
+Document clustering has been used widely for text categorization, search result grouping, information extraction. The process of clustering documents have these main steps: First, find a vector representation that correctly encode the semantic meaning of documents. Then, choose a metric to compute the distance between document's representation. Finally, select a clustering algorithm. to find a correct document representation is a critical factor when clustering documents, for the purpose of this study we chose three different representation: Tf-idf \cite{tfidf}, LSA \cite{lsa} and Word2Vec \cite{mikolov2013}.  
+
+A problem we will face in this investigation is the length of the proposals. Several studies have used Word2Vec successfully, but the majority of them over documents represented by a hundreds of words \cite{clust.short.text}. We will use different documents representation that may overcome this limitation.
+
+\section{Motivation}
+To guide the decision-making of the developing team as well as identify whether a similar proposal already exists.
+\section{Challenges}
+The dataset is comprised of proposals and actuations written in two different languages, 94\% in Catalan and 7\% in Spanish. This feature makes the platform of decidim unique and, for the purpose of our thesis (clustering of proposals), requires additional steps to define a proper representation and similarity metric. We have analyzed possible ways to deal with this issue.
+The size of the data did not allow train a Neural Network model, that would probably have led to a better result than using a pre-trained model. Moreover, the length of proposals difficult the clustering process of semantically similar proposals.
+
+To evaluate the quality of clusters, ideally, one should have a ground truth to compare the clustering result. There was not a trustworthy ground truth. The one used was the final result Id of approved proposals which group similar proposal. However, the groups of proposals found in several results are not always semantically similar, also semantically similar proposals might be across different results and, not all proposals appear only in one result. Consequently, we end up we a result that might give us some idea of correctness, but cannot be totally reliably.
+
+
+\section{Objectives}
+Discover to what extent decidim Barcelona proposals can be cluster obtaining good results.
+
+\section{Structure of the Report}
+
+Chapter 2 gives a brief explanation of the data used in this project as well as a theoretical introduction to methods and algorithm used, like different text representations, hierarchical clustering and its linkage methods, similarity measures and cluster quality evaluation.
+
+Chapter 3 show and compare the results achieved after applying hierarchical clustering over decidim Barcelona dataset.
+
+Finally, chapter 4 conclude this investigation summarizing what was discover when applying the proposed techniques. 
+
+
+\newpage
+
+

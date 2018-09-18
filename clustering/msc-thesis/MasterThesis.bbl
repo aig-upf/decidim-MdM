@@ -1,0 +1,119 @@
+\begin{thebibliography}{10}
+
+\bibitem{clusteringSurvey}
+C.~Aggarwal and C.~Zhai.
+\newblock A survey of text clustering algorithms.
+\newblock 08 2012.
+
+\bibitem{nmi.fair}
+A.~Amelio and C.~Pizzuti.
+\newblock Is normalized mutual information a fair measure for comparing
+  community detection methods?
+\newblock 08 2015.
+
+\bibitem{decidim}
+P.~Arag{\'o}n, A.~Kaltenbrunner, A.~Calleja-L{\'o}pez, A.~Pereira, A.~Monterde,
+  X.~E. Barandiaran, and V.~G{\'o}mez.
+\newblock Deliberative platform design: The case study of the online
+  discussions in decidim barcelona.
+\newblock In {\em Social Informatics: 9th International Conference (SocInfo)
+  (vol II)}, pages 277--287. Springer, 2017.
+
+\bibitem{decide.madrid}
+I.~Cantador, A.~Bellogín, M.~Cortés-Cediel, and O.~Gil.
+\newblock Personalized recommendations in e-participation: Offline experiments
+  for the 'decide madrid' platform.
+\newblock 08 2017.
+
+\bibitem{semantic.short}
+C.~De~Boom, S.~Van~Canneyt, T.~Demeester, and B.~Dhoedt.
+\newblock Representation learning for very short texts using weighted word
+  embedding aggregation.
+\newblock 80, 06 2016.
+
+\bibitem{lsa}
+S.~Deerwester, S.~T.~Dumais, G.~Furnas, T.~Landauer, and R.~Harshman.
+\newblock Indexing by latent semantic analysis.
+\newblock 41:391--407, 09 1990.
+
+\bibitem{han2012mining}
+J.~Han, M.~Kamber, and J.~Pei.
+\newblock {\em Data mining concepts and techniques, third edition}.
+\newblock Morgan Kaufmann Publishers, 2012.
+
+\bibitem{similarity.mes}
+A.~Huang.
+\newblock Similarity measures for text document clustering.
+\newblock 01 2008.
+
+\bibitem{comparing.partitions}
+L.~Hubert and P.~Arabie.
+\newblock Comparing partitions.
+\newblock 2:193--218, 02 1985.
+
+\bibitem{scipy}
+E.~Jones, T.~Oliphant, P.~Peterson, et~al.
+\newblock {SciPy}: Open source scientific tools for {Python}, 2001--.
+\newblock [Online; accessed <today>].
+
+\bibitem{wmd}
+M.~Kusner, Y.~Sun, N.~Kolkin, and K.~Weinberger.
+\newblock From word embeddings to document distances.
+\newblock pages 957--966, 01 2015.
+
+\bibitem{sumarization}
+M.~Kågebäck, O.~Mogren, N.~Tahmasebi, and D.~Dubhashi.
+\newblock Extractive summarization using continuous vector space models.
+\newblock 04 2014.
+
+\bibitem{word2vec.lexical}
+Y.-Y. Lee, H.~Ke, H.-H. Huang, and H.-H. Chen.
+\newblock Combining word embedding and lexical database for semantic
+  relatedness measurement.
+\newblock pages 73--74, 04 2016.
+
+\bibitem{manning2008introduction}
+C.~D. Manning, P.~Raghavan, and H.~Schütze.
+\newblock {\em Introduction to Information Retrieval}.
+\newblock Cambridge University Press, Cambridge, UK, 2008.
+
+\bibitem{mikolov2013}
+T.~Mikolov, G.~Corrado, K.~Chen, and J.~Dean.
+\newblock Efficient estimation of word representations in vector space.
+\newblock pages 1--12, 01 2013.
+
+\bibitem{mikolov.phrases}
+T.~Mikolov, I.~Sutskever, K.~Chen, G.~Corrado, and J.~Dean.
+\newblock Distributed representations of words and phrases and their
+  compositionality.
+\newblock 26, 10 2013.
+
+\bibitem{mullner}
+D.~Müllner.
+\newblock Modern hierarchical, agglomerative clustering algorithms.
+\newblock 09 2011.
+
+\bibitem{scikit-learn}
+F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
+  M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
+  D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay.
+\newblock Scikit-learn: Machine learning in {P}ython.
+\newblock {\em Journal of Machine Learning Research}, 12:2825--2830, 2011.
+
+\bibitem{vector.space}
+G.~Salton, A.~Wong, and C.~Yang.
+\newblock A vector space model for automatic indexing.
+\newblock 18:613--, 11 1975.
+
+\bibitem{clust.short.text}
+P.~Shrestha, C.~Jacquin, and B.~Daille.
+\newblock Clustering short text and its evaluation.
+\newblock pages 169--180, 03 2012.
+
+\bibitem{tfidf}
+K.~Sparck~Jones.
+\newblock A statistical interpretation of term specificity and its application
+  in retrieval.
+\newblock 08 2018.
+
+\end{thebibliography}

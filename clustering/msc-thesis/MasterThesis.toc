@@ -1,0 +1,36 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motivation}{2}{section.1.1}
+\contentsline {section}{\numberline {1.2}Challenges}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}Objectives}{3}{section.1.3}
+\contentsline {section}{\numberline {1.4}Structure of the Report}{3}{section.1.4}
+\contentsline {chapter}{\numberline {2}Background \& Methods}{4}{chapter.2}
+\contentsline {section}{\numberline {2.1}Dedicim Barcelona}{4}{section.2.1}
+\contentsline {section}{\numberline {2.2}Data Preprocessing and Translation}{5}{section.2.2}
+\contentsline {section}{\numberline {2.3}Data Representation}{6}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}TF-IDF}{6}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Latent Semantic Analysis}{8}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Word2Vec}{8}{subsection.2.3.3}
+\contentsline {section}{\numberline {2.4}Clustering Algorithm}{10}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Hierarchical Clustering}{10}{subsection.2.4.1}
+\contentsline {section}{\numberline {2.5}Similarity Measures}{12}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Euclidean Distance}{12}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Cosine Similarity}{13}{subsection.2.5.2}
+\contentsline {section}{\numberline {2.6}Cluster Evaluation}{13}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}Silhouette Coefficient}{14}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.2}Purity}{15}{subsection.2.6.2}
+\contentsline {subsection}{\numberline {2.6.3}Normalized Mutual Information}{15}{subsection.2.6.3}
+\contentsline {subsection}{\numberline {2.6.4}Adjusted Rand Index}{16}{subsection.2.6.4}
+\contentsline {chapter}{\numberline {3}Results}{18}{chapter.3}
+\contentsline {section}{\numberline {3.1}Dataset Details}{18}{section.3.1}
+\contentsline {section}{\numberline {3.2}Positive Results}{20}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Tf-Idf Results}{23}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}LSA Results}{24}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Word2Vec Results}{25}{subsection.3.2.3}
+\contentsline {section}{\numberline {3.3}Negative Results}{30}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Tf-Idf Results}{32}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}LSA Results}{34}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Word2Vec Results}{35}{subsection.3.3.3}
+\contentsline {chapter}{\numberline {4}Conclusions}{39}{chapter.4}
+\contentsline {chapter}{List of Figures}{41}{section*.19}
+\contentsline {chapter}{List of Tables}{42}{section*.20}
+\contentsline {chapter}{Bibliography}{43}{chapter*.21}

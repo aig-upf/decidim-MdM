@@ -1,0 +1,27 @@
+\begin{table}[!htpb]
+\centering
+{\scriptsize %
+\begin{tabular}{c|c|c|c|c|c|c|c|c}
+ \hline
+Representation & Distance & Linkage & Cut Threshold & \#Clusters & NMI & Purity & ARI & Silhouette\\
+\hline
+\hline
+\multirow{3}{*}{Tf-Idf}  & \multirow{3}{*}{Cosine}  & Complete & 0.0200 & 53 & 0.6279 & \textbf{1.0000}&  0.0055 & 0.0370 \\
+ & & Average & 0.9400 & 6 & \textbf{0.8893} &  0.9630 & \textbf{0.8454} & 0.1113  \\
+ & & Complete & 0.8000 & 26 & 0.6808 &  0.9630 & 0.1992 & \textbf{0.1711} \\
+\cline{1-9}
+\multirow{3}{*}{LSA}  & \multirow{3}{*}{Cosine}  & Complete & 0.0200 & 46 & 0.6426 & \textbf{1.0000}&  0.0431 & 0.2026 \\
+ & & Complete & 0.7000 & 5 & \textbf{1.0000} &  1.0000 & \textbf{1.0000} & 0.6492  \\
+ & & Average & 0.3600 & 5 & 0.9574 &  0.9815 & 0.9438 & \textbf{0.6638} \\
+\cline{1-9}
+\multirow{4}{*}{Word2Vec}  & \multirow{4}{*}{Cosine}  & Average & 0.4400 & 9 & \textbf{0.8972} & 1.0000 & 0.8105 & 0.1927 \\
+ & & Complete & 0.0200 & 53 & 0.6279 & \textbf{1.0000}&  0.0055 & 0.0370 \\
+ & & Average & 0.4400 & 9 & 0.8972 &  1.0000 & \textbf{0.8105} & 0.1927  \\
+ & & Average & 0.5600 & 2 & 0.1029 &  0.2963 & 0.0086 & \textbf{0.2131} \\
+\cline{1-9}
+\hline
+\end{tabular}
+}%
+\caption{Quality measures for subset of proposals from different categories.}
+\label{tab:mix.scores}
+\end{table}

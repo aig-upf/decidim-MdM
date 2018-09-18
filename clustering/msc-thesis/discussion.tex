@@ -1,0 +1,10 @@
+\chapter{Conclusions}
+ In this study, we have applied several techniques to a small corpus composed of short documents collected from an e-governance application. These two properties (the size of the corpus and the length of the proposals) represented a challenge when applying standard techniques, like the widely used Word2Vec. We applied different linkage methods to find the most suitable for our dataset. We found that when the clusters are compact, the difference between linkages is small. However, as every dataset has its own particular features, we suggest testing with several linkage methods.\\
+
+To evaluate the clustering of proposals, we have used four different metrics; Purity, Normalized Mutual Information, Adjust Rand Index and Silhouette Coefficient. We have shown, that none of these measures is able to accurately evaluate the final clustering, and we found useful to combine more than one metric to select a final result as the best. Also, we suggest using an internal evaluation criterion, mainly due to the possibility of having a not accurate ground truth. \\
+
+Word2Vec did not show a superior solution for any of the subset of proposals used in our experiments. We believe this is due to the lack of a model training with our data, and due to the length of proposals that affect the final found similarities. LSA worked very well removing noise and keeping features that allow finding similarities more accurately. We cannot conclude if any of these methods can capture semantics accurately, as we found a high word co-ocurrence between proposals cluster in the same groups. Tf-Idf did perform as expected and was very useful to remove words that did not add any meaningful information to sentences. 
+
+We propose to train a Word2Vec model after collecting more proposals and define a more accurate ground truth. A promising direction would be to use the text from the proposals to build the corpus. In the mean-while, we believe LSA might lead to significant and informative clustering that can be used by Decidim Barcelona.
+\newpage
+
